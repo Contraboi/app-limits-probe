@@ -4,4 +4,4 @@ jobs:
   ok:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ok
+      - run: echo f34-m1-167404747
