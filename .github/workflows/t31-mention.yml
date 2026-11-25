@@ -1,0 +1,18 @@
+# Throwaway test for Contraboi/firma#31. Runs only on this branch.
+name: t31-mention
+on:
+  push:
+    branches: [t31-workflow-mention]
+permissions:
+  issues: write
+jobs:
+  mention:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mention the operator with the workflow's own token
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${{ github.repository }}/issues/2/comments" \
+            -f body="@Contraboi Test B: this comment was written by a workflow's own GITHUB_TOKEN. It stands in for the watchdog telling you the Hub is dead." \
+            --jq '{id, html_url, author: .user.login, type: .user.type, created_at}'
