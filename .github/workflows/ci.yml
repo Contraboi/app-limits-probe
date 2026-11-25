@@ -4,7 +4,7 @@ jobs:
   ok:
     runs-on: ubuntu-latest
     steps:
-      - run: echo f34-case-b-281659779
+      - run: echo f34-case-c-2103221043
       - env:
           PROBE: ${{ secrets.PROBE_SECRET }}
         run: if [ -n "$PROBE" ]; then echo "probe secret present"; else echo "probe secret empty"; fi
